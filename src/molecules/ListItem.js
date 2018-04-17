@@ -1,6 +1,7 @@
 import React from 'react';
 import styled from 'styled-components';
 import Text from '../atoms/Text.js';
+import Heading from '../atoms/Heading.js';
 import Image from '../atoms/Image.js';
 import PropTypes from "prop-types";
 
@@ -22,21 +23,25 @@ const Container = styled.View`
 
 const ImageContainer = styled.View`
     flex: 1 1;
+    height: 70;
 `;
 
 const ContentContainer = styled.View`
     flex: 2 1;
-    background-color: antiquewhite;
+    padding: 0 16px;
 `;
 
-const ListItem = ({name, flag}) => {
+const ListItem = ({name, flag, region, population, capital}) => {
     return (
         <Container>
             <ImageContainer>
                 <Image source={flag}/>
             </ImageContainer>
             <ContentContainer>
-                <Text color={'black'}>{name}</Text>
+                <Heading type={'h4'}>{name}</Heading>
+                <Text color={'black'}>Region: {region}</Text>
+                <Text color={'black'}>Population: {population}</Text>
+                <Text color={'black'}>Capital: {capital}</Text>
             </ContentContainer>
         </Container>
     )
