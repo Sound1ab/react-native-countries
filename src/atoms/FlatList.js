@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
-const StyledFlatList = styled.FlatList`
+const FlatList = styled.FlatList`
     padding: 8px;
 `;
 
-export default ListItem;
+export default FlatList;
