@@ -2,7 +2,7 @@ import React from 'react';
 import styled, {css} from 'styled-components';
 import {Text} from 'react-native';
 import PropTypes from 'prop-types';
-import {shevySingleton} from '../assets/shevy';
+import {shevySingleton} from '../../assets/shevy';
 const shevy = shevySingleton.getInstance();
 
 // const StyledHeading = ({children, className}) => {
