@@ -5,7 +5,7 @@ const Wrapper = styled.View`
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 16px;
+    padding: 8px;
 `;
 
 export default Wrapper;
