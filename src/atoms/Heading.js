@@ -5,10 +5,6 @@ import PropTypes from 'prop-types';
 import {shevySingleton} from '../../assets/shevy';
 const shevy = shevySingleton.getInstance();
 
-// const StyledHeading = ({children, className}) => {
-//     return React.createElement(Text, {className: className}, children);
-// };
-
 function styles (type) {
 
     const {fontSize, lineHeight, marginBottom} = shevy[type];
@@ -40,10 +36,3 @@ StyledHeading.defaultProps = {
 };
 
 export default StyledHeading;
-
-// export default styled(StyledHeading)`
-//     color: ${({color}) => color ? color : 'black'};
-//     font-family: 'San Francisco';
-//     font-weight: 100;
-//     ${({type}) => type ? styles(type) : null}
-// `;
