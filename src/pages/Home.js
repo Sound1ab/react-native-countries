@@ -1,27 +1,33 @@
 import React from 'react';
-import {StyleSheet, Text, View, TouchableOpacity} from 'react-native';
-import styled from 'styled-components';
+import Text from '../atoms/Text.js';
+import Button from '../atoms/Button.js';
 import Wrapper from '../atoms/Wrapper.js';
+import Heading from '../atoms/Heading.js';
 
-const StyledView = styled.View`
-    flex: 1;
-    flex-direction: row;
-    justify-content: flex-start;
-    align-items: center;
+const Container = Wrapper.extend`
+    justify-content: space-around;
 `;
 
-export default class TestScreen extends React.Component {
+export default class Home extends React.Component {
+    static navigationOptions = {
+        title: 'Home'
+    };
+
     handlePress = () => {
-        console.log('fire');
         const {navigation} = this.props;
-        navigation.navigate('Home');
+        navigation.navigate('CountryList');
     };
 
     render() {
         return (
-            <Wrapper>
-                hey
-            </Wrapper>
+            <Container>
+                <Heading type={'h1'}>EU Countries</Heading>
+                <Button
+                    onPress={this.handlePress}
+                >
+                    <Text>Start</Text>
+                </Button>
+            </Container>
         );
     }
 }
