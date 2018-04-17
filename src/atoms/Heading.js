@@ -1,21 +1,29 @@
 import React from 'react';
 import styled, {css} from 'styled-components';
+import {Text} from 'react-native';
 import PropTypes from 'prop-types';
-import {shevySingleton} from '../../assets/shevy';
+import {shevySingleton} from '../assets/shevy';
 const shevy = shevySingleton.getInstance();
 
-const StyledHeading = ({type, children, className}) => {
-    return React.createElement(type, {className: className}, children);
-};
+// const StyledHeading = ({children, className}) => {
+//     return React.createElement(Text, {className: className}, children);
+// };
 
 function styles (type) {
+
     const {fontSize, lineHeight, marginBottom} = shevy[type];
     return css`
       font-size: ${fontSize}
-      line-height: ${lineHeight}
       margin-bottom: ${marginBottom}
-    `
+    `;
 }
+
+const StyledHeading = styled.Text`
+    color: ${({color}) => color ? color : 'black'};
+    font-family: 'System';
+    font-weight: 200;
+    ${({type}) => type ? styles(type) : null}
+`;
 
 StyledHeading.propTypes = {
     color: PropTypes.string,
@@ -31,9 +39,11 @@ StyledHeading.defaultProps = {
     type: 'h1'
 };
 
-export default styled(StyledHeading)`
-    color: ${({color}) => color ? color : 'var(--black)'};
-    font-family: var(--ff-heading);
-    font-weight: 100;
-    ${({type}) => type ? styles(type) : null}
-`;
+export default StyledHeading;
+
+// export default styled(StyledHeading)`
+//     color: ${({color}) => color ? color : 'black'};
+//     font-family: 'San Francisco';
+//     font-weight: 100;
+//     ${({type}) => type ? styles(type) : null}
+// `;

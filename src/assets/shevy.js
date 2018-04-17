@@ -5,13 +5,7 @@ export const shevySingleton = (function () {
     return {
         getInstance () {
             if (instance === null) {
-                instance = new Shevy({
-                    baseFontSize: '14px',
-                    baseLineHeight: 1.5,
-                    proximity: true,
-                    proximityFactor: 0.5,
-                    baseFontScale: 'minorThird'
-                });
+                instance = new Shevy();
                 instance.constructor = null;
             }
             return instance;
