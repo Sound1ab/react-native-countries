@@ -16,12 +16,11 @@ class CountryList extends Component {
         title: 'Countries'
     };
 
-    componentWillMount = async () => {
+    fetchData = async () => {
         try {
             const response = await fetch('https://restcountries.eu/rest/v2/all');
             const countries = await response.json();
             const formattedData = this.createKeys(countries);
-            console.log(formattedData);
             this.setState({
                 loading: false,
                 countries: formattedData
@@ -30,6 +29,10 @@ class CountryList extends Component {
             console.log(e);
             this.setState({loading: false, error: true});
         }
+    };
+
+    componentWillMount = () => {
+        this.fetchData();
     };
 
     createKeys = (data) => {

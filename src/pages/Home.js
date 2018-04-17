@@ -21,7 +21,11 @@ export default class Home extends React.Component {
     render() {
         return (
             <Container>
-                <Heading type={'h1'}>EU Countries</Heading>
+                <Heading
+                    type={'h1'}
+                >
+                    EU Countries
+                </Heading>
                 <Button
                     onPress={this.handlePress}
                 >
