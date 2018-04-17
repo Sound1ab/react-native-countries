@@ -1,11 +1,6 @@
 import React, {Component} from 'react';
-import styled from 'styled-components';
-import {Text, SectionList, FlatList} from 'react-native';
-import PropTypes from 'prop-types';
-
-const StyledText = styled.Text`
-    color: black;
-`;
+import ListItem from '../molecules/ListItem.js';
+import FlatList from '../atoms/FlatList.js';
 
 class CountryList extends Component {
     constructor(props) {
@@ -26,6 +21,7 @@ class CountryList extends Component {
             const response = await fetch('https://restcountries.eu/rest/v2/all');
             const countries = await response.json();
             const formattedData = this.createKeys(countries);
+            console.log(formattedData);
             this.setState({
                 loading: false,
                 countries: formattedData
@@ -45,9 +41,15 @@ class CountryList extends Component {
         })
     };
 
-    renderItem = ({item, index}) => {
-        console.log(item, index);
-        return <Text key={index}>{item.key}</Text>;
+    renderItem = ({item: {name, region, population, capital, flag}, index}) => {
+        return <ListItem
+            key={index}
+            name={name}
+            region={region}
+            population={population}
+            capital={capital}
+            flag={flag}
+        />;
     };
 
     render() {
